@@ -8,31 +8,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-
-    <title>Header - NHS.UK frontend</title>
-
+    <title>Social Prescription Recommender</title>
     <link href="https://www.nhs.uk/" rel="preconnect">
     <link href="https://assets.nhs.uk/" rel="preconnect" crossorigin>
-
     <link type="font/woff2" href="https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.woff2" rel="preload" as="font" crossorigin>
     <link type="font/woff2" href="https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.woff2" rel="preload" as="font" crossorigin>
-
     <link href="css/nhsuk-3.0.2.min.css" rel="stylesheet">
-
     <script src="js/nhsuk-3.0.2.min.js" defer></script>
-
     <link rel="shortcut icon" href="/assets/favicons/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="/assets/favicons/apple-touch-icon-180x180.png">
     <link rel="mask-icon" href="/assets/favicon.svg" color="#005eb8">
     <link rel="icon" sizes="192x192" href="/nhsuk-frontend/assets/favicon-192x192.png">
   </head>
-
   <body>
     <script>
         document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
     </script>
-
-
     <header class="nhsuk-header" role="banner">
       <div class="nhsuk-width-container nhsuk-header__container">
         <div class="nhsuk-header__logo"><a class="nhsuk-header__link" href="/" aria-label="NHS homepage">
@@ -46,41 +37,44 @@
       </div>
     </header>
     <div class="nhsuk-u-padding-2"></div>
-    <div class="nhsuk-width-container">
-      <fieldset class="nhsuk-fieldset">
-        <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-          <h1 class="nhsuk-fieldset__heading">
-            Social Prescription Recommender
-          </h1>
-        </legend>
-
-        <div class="nhsuk-form-group">
-          <label class="nhsuk-label" for="discharge-summary">
-            Can you provide the discharge summary?
-          </label>
-          <span class="nhsuk-hint" id="discharge-summary">
+    <form method="POST">
+      <div class="nhsuk-width-container">
+        <fieldset class="nhsuk-fieldset">
+          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+            <h1 class="nhsuk-fieldset__heading">
+              Social Prescription Recommender
+            </h1>
+          </legend>
+          <div class="nhsuk-form-group">
+            <label class="nhsuk-label" for="discharge-summary">
+              Can you provide the discharge summary?
+            </label>
+            <span class="nhsuk-hint" id="discharge-summary">
             Do not include personal information, for example, your National Insurance number, names, postcodes, telephone numbers.
           </span>
-          <textarea class="nhsuk-textarea" id="discharge-summary" name="discharge-summary" rows="5" aria-describedby="discharge-summary"></textarea>
+            <textarea class="nhsuk-textarea" id="discharge-summary" name="discharge-summary" rows="5" aria-describedby="discharge-summary"></textarea>
+          </div>
+        </fieldset>
+        <div class="nhsuk-u-padding-bottom-5">
+          <h3>Recommendations</h3>
+          <% recommendations.each do |recommendation| %>
+            <div>
+              <h4><%= recommendation[:title] %></h4>
+              <p><%= recommendation[:description] %></p>
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+                  Recommended
+                </label>
+              </div>
+            </div>
+          <% end %>
         </div>
-      </fieldset>
-      <h3>Recommendations</h3>
-
-      <% recommendations.each do |recommendation| %>
-      <div class="nhsuk-u-padding-bottom-9">
-        <h4><%= recommendation[:title] %></h4>
-        <p><%= recommendation[:description] %></p>
-        <div class="nhsuk-checkboxes__item">
-          <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email">
-          <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
-            Recommended
-          </label>
-        </div>
+        <button class="nhsuk-button" type="submit">
+          Continue
+        </button>
       </div>
-      <hr class="nhsuk-section-break nhsuk-section-break--visible">
-    <% end %>
-    </div>
-
+    </form>
     <footer role="contentinfo">
       <div class="nhsuk-footer" id="nhsuk-footer">
         <div class="nhsuk-width-container">
@@ -88,8 +82,6 @@
         </div>
       </div>
     </footer>
-
-
   </body>
 </html>
 

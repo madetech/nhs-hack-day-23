@@ -14,5 +14,9 @@ end
 
 get '/' do
   recommendations = UseCase::ViewRecommendations.new.execute
-  erb :index, locals: recommendations
+  erb :discharge_summary_step, locals: recommendations
+end
+
+post '/recommendations' do
+  erb :recommendations
 end
