@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<!--[if lt IE 9]><html class="ie8" lang="en"><![endif]--><!--[if IE 9]><html class="ie9" lang="en"><![endif]--><!--[if gt IE 9]><!--><html lang="en" style="background-color: #f0f4f5;"><!--<![endif]-->
+<!--[if lt IE 9]>
+<html class="ie8" lang="en"><![endif]--><!--[if IE 9]>
+<html class="ie9" lang="en"><![endif]--><!--[if gt IE 9]><!-->
+<html lang="en" style="background-color: #f0f4f5;"><!--<![endif]-->
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,40 +19,18 @@
 
     <link href="css/nhsuk-3.0.2.min.css" rel="stylesheet">
 
-    <script src=" js/nhsuk-3.0.2.min.js defer></script>
+    <script src="js/nhsuk-3.0.2.min.js" defer></script>
 
-    <link rel="shortcut icon" href="/nhsuk-frontend/assets/favicons/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="/nhsuk-frontend/assets/favicons/apple-touch-icon-180x180.png">
-    <link rel="mask-icon" href="/nhsuk-frontend/assets/favicon.svg" color="#005eb8">
+    <link rel="shortcut icon" href="/assets/favicons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/assets/favicons/apple-touch-icon-180x180.png">
+    <link rel="mask-icon" href="/assets/favicon.svg" color="#005eb8">
     <link rel="icon" sizes="192x192" href="/nhsuk-frontend/assets/favicon-192x192.png">
-    <meta name="msapplication-TileImage" content="/nhsuk-frontend/assets/mediumtile-144x144.png">
-    <meta name="msapplication-TileColor" content="#005eb8">
-    <meta name="msapplication-square70x70logo" content="/nhsuk-frontend/assets/smalltile-70x70.png">
-    <meta name="msapplication-square150x150logo" content="/nhsuk-frontend/assets/mediumtile-150x150.png">
-    <meta name="msapplication-wide310x150logo" content="/nhsuk-frontend/assets/favicons/widetile-310x150.png">
-    <meta name="msapplication-square310x310logo" content="/nhsuk-frontend/assets/favicons/largetile-310x310.png">
-
-    <meta property="og:url" content="https://nhsuk.github.io/nhsuk-frontend/">
-    <meta property="og:title" content="NHS.UK frontend library">
-    <meta property="og:description" content="Code you need to start building accessible user interfaces for NHS websites and services.">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="/nhsuk-frontend/assets/logos/open-graph.png">
-    <meta property="og:image:alt" content="NHS">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@nhsuk">
-    <meta name="twitter:creator" content="@nhsuk">
   </head>
 
-  <body class="">
-    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
-
-
-
-
-
-
-
+  <body>
+    <script>
+        document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
+    </script>
 
 
     <header class="nhsuk-header" role="banner">
@@ -62,112 +43,40 @@
           </svg>
         </a>
         </div>
-
-        <div class="nhsuk-header__content" id="content-header">
-
-          <div class="nhsuk-header__menu">
-            <button class="nhsuk-header__menu-toggle" id="toggle-menu" aria-controls="header-navigation" aria-label="Open menu">Menu</button>
-          </div>
-
-          <div class="nhsuk-header__search">
-            <button class="nhsuk-header__search-toggle" id="toggle-search" aria-controls="search" aria-label="Open search">
-              <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
-              </svg>
-              <span class="nhsuk-u-visually-hidden">Search</span>
-            </button>
-            <div class="nhsuk-header__search-wrap" id="wrap-search">
-              <form class="nhsuk-header__search-form" id="search" action="https://www.nhs.uk/search/" method="get" role="search">
-                <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
-                <div class="autocomplete-container" id="autocomplete-container"></div>
-                <input class="nhsuk-search__input" id="search-field" name="q" type="search" placeholder="Search" autocomplete="off">
-                <button class="nhsuk-search__submit" type="submit">
-                  <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                    <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
-                  </svg>
-                  <span class="nhsuk-u-visually-hidden">Search</span>
-                </button>
-                <button class="nhsuk-search__close" id="close-search">
-                  <svg class="nhsuk-icon nhsuk-icon__close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                    <path d="M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z"></path>
-                  </svg>
-                  <span class="nhsuk-u-visually-hidden">Close search</span>
-                </button>
-              </form>
-            </div>
-          </div>
-
-        </div>
-
       </div>
-
-      <nav class="nhsuk-header__navigation" id="header-navigation" role="navigation" aria-label="Primary navigation" aria-labelledby="label-navigation">
-        <div class="nhsuk-width-container">
-          <p class="nhsuk-header__navigation-title"><span id="label-navigation">Menu</span>
-            <button class="nhsuk-header__navigation-close" id="close-menu">
-              <svg class="nhsuk-icon nhsuk-icon__close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <path d="M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z"></path>
-              </svg>
-              <span class="nhsuk-u-visually-hidden">Close menu</span>
-            </button>
-          </p>
-          <ul class="nhsuk-header__navigation-list">
-            <li class="nhsuk-header__navigation-item nhsuk-header__navigation-item--for-mobile">
-              <a class="nhsuk-header__navigation-link" href="/">
-                Home
-                <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-                </svg>
-              </a>
-            </li>
-            <li class="nhsuk-header__navigation-item">
-              <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/conditions">
-                Health A-Z
-                <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-                </svg>
-              </a>
-            </li>
-            <li class="nhsuk-header__navigation-item">
-              <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/live-well/">
-                Live Well
-                <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-                </svg>
-              </a>
-            </li>
-            <li class="nhsuk-header__navigation-item">
-              <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/conditions/social-care-and-support/">
-                Care and support
-                <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-                </svg>
-              </a>
-            </li>
-            <li class="nhsuk-header__navigation-item">
-              <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/news/">
-                Health news
-                <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-                </svg>
-              </a>
-            </li>
-            <li class="nhsuk-header__navigation-item">
-              <a class="nhsuk-header__navigation-link" href="https://www.nhs.uk/service-search">
-                Services near you
-                <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-                </svg>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-
     </header>
+    <div class="nhsuk-u-padding-2"></div>
+    <div class="nhsuk-width-container">
+      <fieldset class="nhsuk-fieldset">
+        <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+          <h1 class="nhsuk-fieldset__heading">
+            Social Prescription Recommender
+          </h1>
+        </legend>
+
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="discharge-summary">
+            Can you provide the discharge summary?
+          </label>
+          <span class="nhsuk-hint" id="discharge-summary">
+            Do not include personal information, for example, your National Insurance number, names, postcodes, telephone numbers.
+          </span>
+          <textarea class="nhsuk-textarea" id="discharge-summary" name="discharge-summary" rows="5" aria-describedby="discharge-summary"></textarea>
+        </div>
+      </fieldset>
+      <h3>Recommendations</h3>
 
 
 
+    </div>
+
+    <footer role="contentinfo">
+      <div class="nhsuk-footer" id="nhsuk-footer">
+        <div class="nhsuk-width-container">
+          <p class="nhsuk-footer__copyright">&copy; Crown copyright</p>
+        </div>
+      </div>
+    </footer>
 
 
   </body>
