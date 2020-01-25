@@ -10,3 +10,4 @@ gem 'guard-livereload', require: false
 gem 'rack-livereload'
 
 gem 'rb-readline'
+gem 'zeitwerk'
