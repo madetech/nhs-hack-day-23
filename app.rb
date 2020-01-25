@@ -8,5 +8,7 @@ $loader.enable_reloading
 
 use Rack::LiveReload
 
-require_relative './routes'
+$: << "#{__dir__}/lib/"
+
+require 'routes'
 

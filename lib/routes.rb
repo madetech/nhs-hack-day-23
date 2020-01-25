@@ -6,7 +6,11 @@ get '/' do
   erb :discharge_summary_step
 end
 
-post '/recommendations' do
+get '/recommendations' do
   recommendations = UseCase::ViewRecommendations.new.execute
   erb :recommendations, locals: recommendations
+end
+
+get '/done' do
+  erb :done
 end
