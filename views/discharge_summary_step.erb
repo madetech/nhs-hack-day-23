@@ -1,87 +1,38 @@
-<!DOCTYPE html>
-<!--[if lt IE 9]>
-<html class="ie8" lang="en"><![endif]--><!--[if IE 9]>
-<html class="ie9" lang="en"><![endif]--><!--[if gt IE 9]><!-->
-<html lang="en" style="background-color: #f0f4f5;"><!--<![endif]-->
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <title>Social Prescription Recommender</title>
-    <link href="https://www.nhs.uk/" rel="preconnect">
-    <link href="https://assets.nhs.uk/" rel="preconnect" crossorigin>
-    <link type="font/woff2" href="https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.woff2" rel="preload" as="font" crossorigin>
-    <link type="font/woff2" href="https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.woff2" rel="preload" as="font" crossorigin>
-    <link href="css/nhsuk-3.0.2.min.css" rel="stylesheet">
-    <script src="js/nhsuk-3.0.2.min.js" defer></script>
-    <link rel="shortcut icon" href="/assets/favicons/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="/assets/favicons/apple-touch-icon-180x180.png">
-    <link rel="mask-icon" href="/assets/favicon.svg" color="#005eb8">
-    <link rel="icon" sizes="192x192" href="/nhsuk-frontend/assets/favicon-192x192.png">
-  </head>
-  <body>
-    <script>
-        document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
-    </script>
-    <header class="nhsuk-header" role="banner">
-      <div class="nhsuk-width-container nhsuk-header__container">
-        <div class="nhsuk-header__logo"><a class="nhsuk-header__link" href="/" aria-label="NHS homepage">
-          <svg class="nhsuk-logo" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" viewBox="0 0 40 16">
-            <path class="nhsuk-logo__background" d="M0 0h40v16H0z"></path>
-            <path class="nhsuk-logo__text" d="M3.9 1.5h4.4l2.6 9h.1l1.8-9h3.3l-2.8 13H9l-2.7-9h-.1l-1.8 9H1.1M17.3 1.5h3.6l-1 4.9h4L25 1.5h3.5l-2.7 13h-3.5l1.1-5.6h-4.1l-1.2 5.6h-3.4M37.7 4.4c-.7-.3-1.6-.6-2.9-.6-1.4 0-2.5.2-2.5 1.3 0 1.8 5.1 1.2 5.1 5.1 0 3.6-3.3 4.5-6.4 4.5-1.3 0-2.9-.3-4-.7l.8-2.7c.7.4 2.1.7 3.2.7s2.8-.2 2.8-1.5c0-2.1-5.1-1.3-5.1-5 0-3.4 2.9-4.4 5.8-4.4 1.6 0 3.1.2 4 .6"></path>
-            <image src="https://assets.nhs.uk/images/nhs-logo.png" xlink:href=""></image>
-          </svg>
-        </a>
-        </div>
-      </div>
-    </header>
-    <div class="nhsuk-u-padding-2"></div>
-    <form method="POST">
-      <div class="nhsuk-width-container">
-        <fieldset class="nhsuk-fieldset">
-          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-            <h1 class="nhsuk-fieldset__heading">
-              Social Prescription Recommender
-            </h1>
-          </legend>
-          <div class="nhsuk-form-group">
-            <label class="nhsuk-label" for="discharge-summary">
-              Can you provide the discharge summary?
-            </label>
-            <span class="nhsuk-hint" id="discharge-summary">
+<form method="POST">
+  <div class="nhsuk-width-container">
+    <fieldset class="nhsuk-fieldset">
+      <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+        <h1 class="nhsuk-fieldset__heading">
+          Social Prescription Recommender
+        </h1>
+      </legend>
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label" for="discharge-summary">
+          Can you provide the discharge summary?
+        </label>
+        <span class="nhsuk-hint" id="discharge-summary">
             Do not include personal information, for example, your National Insurance number, names, postcodes, telephone numbers.
           </span>
-            <textarea class="nhsuk-textarea" id="discharge-summary" name="discharge-summary" rows="5" aria-describedby="discharge-summary"></textarea>
+        <textarea class="nhsuk-textarea" id="discharge-summary" name="discharge-summary" rows="5" aria-describedby="discharge-summary"></textarea>
+      </div>
+    </fieldset>
+    <div class="nhsuk-u-padding-bottom-5">
+      <h3>Recommendations</h3>
+      <% recommendations.each do |recommendation| %>
+        <div>
+          <h4><%= recommendation[:title] %></h4>
+          <p><%= recommendation[:description] %></p>
+          <div class="nhsuk-checkboxes__item">
+            <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email">
+            <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+              Recommended
+            </label>
           </div>
-        </fieldset>
-        <div class="nhsuk-u-padding-bottom-5">
-          <h3>Recommendations</h3>
-          <% recommendations.each do |recommendation| %>
-            <div>
-              <h4><%= recommendation[:title] %></h4>
-              <p><%= recommendation[:description] %></p>
-              <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email">
-                <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
-                  Recommended
-                </label>
-              </div>
-            </div>
-          <% end %>
         </div>
-        <button class="nhsuk-button" type="submit">
-          Continue
-        </button>
-      </div>
-    </form>
-    <footer role="contentinfo">
-      <div class="nhsuk-footer" id="nhsuk-footer">
-        <div class="nhsuk-width-container">
-          <p class="nhsuk-footer__copyright">&copy; Crown copyright</p>
-        </div>
-      </div>
-    </footer>
-  </body>
-</html>
-
+      <% end %>
+    </div>
+    <button class="nhsuk-button" type="submit">
+      Continue
+    </button>
+  </div>
+</form>
