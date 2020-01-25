@@ -1,0 +1,17 @@
+<div class="nhsuk-width-container">
+  <div class="nhsuk-u-padding-bottom-5">
+    <h3>Recommendations</h3>
+    <% recommendations.each do |recommendation| %>
+      <div>
+        <h4><%= recommendation[:title] %></h4>
+        <p><%= recommendation[:description] %></p>
+        <div class="nhsuk-checkboxes__item">
+          <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email">
+          <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+            Recommended
+          </label>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
