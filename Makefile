@@ -14,3 +14,7 @@ stop: server.pid
 .PHONY: install
 install:
 	bundle install
+
+.PHONY: test
+test:
+	bundle exec guard -g tests

@@ -1,4 +1,8 @@
 class Recommender
+  def new_discharge_summary(summary)
+
+  end
+
   def recommendations_summary
     {
       recommendations: [

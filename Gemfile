@@ -14,3 +14,5 @@ gem 'rb-readline'
 gem 'zeitwerk'
 
 gem 'rspec'
+
+gem 'guard-rspec'
