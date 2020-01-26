@@ -12,7 +12,7 @@ class Recommender
   end
 
   def add_recommendation(title, description)
-    @recommendations << {title: title}
+    @recommendations << {title: title, description: description}
   end
 
   def new_discharge_summary(summary)

@@ -5,7 +5,7 @@
       <h3>Recommendations based on keywords in your discharge summary</h3>
       <% recommendations.each do |recommendation| %>
         <div class="nhsuk-u-padding-bottom-9">
-          <h4><%= recommendation[:title] %></h4>
+          <h4 class="nhsuk-u-margin-bottom-0"><%= recommendation[:title] %></h4>
           <p><%= recommendation[:description] %></p>
           <div class="nhsuk-checkboxes__item">
             <input class="nhsuk-checkboxes__input"
