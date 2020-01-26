@@ -1,5 +1,5 @@
 .PHONY: serve
-serve: server.pid
+serve: stop server.pid
 	bundle exec guard -g serve
 	@echo to stop run "make stop"
 
