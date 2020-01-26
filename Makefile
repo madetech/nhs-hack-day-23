@@ -1,5 +1,5 @@
 .PHONY: serve
-serve: stop server.pid
+serve: install stop server.pid
 	bundle exec guard -g serve
 	@echo to stop run "make stop"
 
@@ -10,3 +10,7 @@ server.pid:
 stop: server.pid
 	kill `cat $<` || true
 	rm $<
+
+.PHONY: install
+install:
+	bundle install
