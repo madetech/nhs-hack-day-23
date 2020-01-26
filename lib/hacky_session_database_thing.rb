@@ -16,9 +16,9 @@ class HackySessionDatabaseThing
     hash = JSON.parse(Base64.decode64(base64))
 
     recommender = Recommender.new
-    recommender.discharge_summary = hash['discharge_summary']
+    recommender.discharge_summary = hash['discharge_summary'] || ''
     recommender.recommendations = (hash['recommendations'] || []).map(&method(:symbolize))
-    recommender.agreed_recommendations = hash['agreed_recommendations']
+    recommender.agreed_recommendations = hash['agreed_recommendations'] || []
     recommender
   end
 
