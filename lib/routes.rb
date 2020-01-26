@@ -1,3 +1,7 @@
+def reset
+  @recommender = HackySessionDatabaseThing.new.decode(nil)
+end
+
 before do
   $loader.reload
   @db = HackySessionDatabaseThing.new
@@ -8,8 +12,13 @@ after do
   cookies[:db] = @db.encode(@recommender)
 end
 
+get '/reset' do
+  reset
+  redirect '/'
+end
+
 get '/seeds' do
-  @recommender = HackySessionDatabaseThing.new.decode(nil)
+  reset
   @recommender.add_recommendation(
     "T'ai Chi",
     'Mondays 9-10am, Central Park'
