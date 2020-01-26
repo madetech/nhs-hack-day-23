@@ -10,6 +10,7 @@ class HackySessionDatabaseThing
   end
 
   def decode(base64)
+    return Recommender.new if base64.nil?
     hash = JSON.parse(Base64.decode64(base64))
 
     recommender = Recommender.new

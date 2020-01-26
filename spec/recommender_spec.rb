@@ -6,7 +6,7 @@ end
 
 describe Recommender do
   before do
-    @recommender = described_class.new
+    @recommender = HackySessionDatabaseThing.new.decode(nil)
   end
 
   def new_discharge_summary(*args)
