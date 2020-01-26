@@ -12,11 +12,6 @@ after do
   cookies[:db] = @db.encode(@recommender)
 end
 
-get '/reset' do
-  reset
-  redirect '/'
-end
-
 get '/seeds' do
   reset
   @recommender.add_the_seeds
@@ -24,11 +19,15 @@ get '/seeds' do
 end
 
 get '/adam' do
+  reset
+  @recommender.add_the_seeds
   @recommender.new_discharge_summary("Adam (21) has been seen by the Occupational Therapist following a spinal cord injury. He is a new wheelchair user. He is keen to return to paid employment and sport. Prior to his injury, he was a carer for his Mum.")
   redirect '/'
 end
 
 get '/betty' do
+  reset
+  @recommender.add_the_seeds
   @recommender.new_discharge_summary("Betty (85) was referred for Physiotherapy to improve her mobility after being in hospital due to a fall and broken hip (which was repaired). She is now able to walk short distances with a walking stick and is keen to progress her walking. She continues to be the main carer for her husband, who has moderate Alzheimer's.")
   redirect '/'
 end
