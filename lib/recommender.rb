@@ -1,4 +1,6 @@
 class Recommender
+  attr_accessor :summary
+
   def initialize
     @summary = ''
   end
