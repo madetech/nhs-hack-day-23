@@ -10,6 +10,7 @@ end
 
 after do
   cookies[:db] = @db.encode(@recommender)
+  response.headers['Cache-Control'] = 'no-store'
 end
 
 get '/seeds' do
