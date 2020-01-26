@@ -16,3 +16,4 @@ gem 'zeitwerk'
 gem 'rspec'
 
 gem 'guard-rspec'
+gem 'sentry-raven'
