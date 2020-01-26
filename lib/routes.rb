@@ -2,7 +2,6 @@ before do
   $loader.reload
   @db = HackySessionDatabaseThing.new
   @recommender = @db.decode(cookies[:db])
-  @session = Session.decode(request['session']) #todo: get rid of session class
 end
 
 after do
