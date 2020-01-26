@@ -21,7 +21,7 @@
         <span class="nhsuk-hint" id="discharge-summary">
             Do not include personal information, for example, National Insurance numbers, names, postcodes, telephone numbers.
           </span>
-        <textarea class="nhsuk-textarea" id="discharge-summary" name="discharge-summary" rows="5" aria-describedby="discharge-summary"></textarea>
+        <textarea class="nhsuk-textarea" id="discharge-summary" name="discharge-summary" rows="5" aria-describedby="discharge-summary"><%= @recommender.recommendations_summary[:discharge_summary] %></textarea>
       </div>
     </fieldset>
     <button class="nhsuk-button" type="submit">
