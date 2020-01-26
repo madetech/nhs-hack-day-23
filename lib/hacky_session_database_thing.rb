@@ -5,7 +5,8 @@ class HackySessionDatabaseThing
     Base64.encode64(
       {
         discharge_summary: recommender.discharge_summary,
-        recommendations: recommender._recommendations
+        recommendations: recommender._recommendations,
+        agreed_recommendations: recommender.agreed_recommendations
       }.to_json
     )
   end
@@ -17,6 +18,7 @@ class HackySessionDatabaseThing
     recommender = Recommender.new
     recommender.discharge_summary = hash['discharge_summary']
     recommender.recommendations = (hash['recommendations'] || []).map(&method(:symbolize))
+    recommender.agreed_recommendations = hash['agreed_recommendations']
     recommender
   end
 

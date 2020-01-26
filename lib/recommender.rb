@@ -1,10 +1,14 @@
+require 'securerandom'
+
 class Recommender
   attr_accessor :discharge_summary
+  attr_accessor :agreed_recommendations
   attr_writer :recommendations
 
   def initialize
     @discharge_summary = ''
     @recommendations = []
+    @agreed_recommendations = []
   end
 
   def _recommendations
@@ -12,7 +16,7 @@ class Recommender
   end
 
   def add_recommendation(title, description)
-    @recommendations << {title: title}
+    @recommendations << { id: SecureRandom.uuid, title: title }
   end
 
   def new_discharge_summary(summary)
@@ -24,17 +28,16 @@ class Recommender
     @recommendations
   end
 
+  def agree_on_recommendation(id)
+    @agreed_recommendations << id
+  end
+
   def recommendations_summary
     {
       discharge_summary: @discharge_summary,
-      recommendations: [ #todo these are "agreed recommendations" and should be displayed based on the checkboxes
-        {
-          title: 'Tai Chi'
-        },
-        {
-          title: 'Walking Group'
-        }
-      ]
+      recommendations: @recommendations.select do |r|
+        @agreed_recommendations.include?(r[:id])
+      end
     }
   end
 end
