@@ -1,4 +1,12 @@
 <div class="nhsuk-width-container">
+  <% if success %>
+    <div class="nhsuk-inset-text">
+      <span class="nhsuk-u-visually-hidden">Recommendation Sent: </span>
+      <p>Those recommendations were sent successfully. You can now make recommendations for another patient.</p>
+    </div>
+  <% else %>
+    <div class="nhsuk-u-padding-2"></div>
+  <% end %>
   <form method="GET" action="/recommendations">
     <fieldset class="nhsuk-fieldset">
       <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">

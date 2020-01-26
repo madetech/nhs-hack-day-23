@@ -3,7 +3,7 @@ before do
 end
 
 get '/' do
-  erb :discharge_summary_step
+  erb :discharge_summary_step, locals: { success: request['success'] == 'true' }
 end
 
 get '/recommendations' do
@@ -13,4 +13,8 @@ end
 
 get '/done' do
   erb :recommendations_summary
+end
+
+get '/send' do
+  redirect '/?success=true'
 end
