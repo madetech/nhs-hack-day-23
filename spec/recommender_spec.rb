@@ -84,6 +84,12 @@ describe Recommender do
     end
   end
 
+  context 'recommendations for the presentation' do
+    xit 'can recommend carer keyword' do
+      new_discharge_summary()
+    end
+  end
+
   context 'when there are recommendations not available' do
     it 'can show no recommendations' do
       new_discharge_summary('this is a discharge summary')

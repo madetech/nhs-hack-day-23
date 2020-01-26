@@ -16,7 +16,11 @@ class Recommender
   end
 
   def add_recommendation(title, description)
-    @recommendations << { id: SecureRandom.uuid, title: title }
+    @recommendations << {
+      id: SecureRandom.uuid,
+      title: title,
+      description: description
+    }
   end
 
   def new_discharge_summary(summary)
