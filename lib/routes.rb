@@ -34,7 +34,9 @@ get '/' do
 end
 
 get '/recommendations' do
-  @recommender.new_discharge_summary(request['discharge-summary'])
+  unless request['discharge-summary'].nil?
+    @recommender.new_discharge_summary(request['discharge-summary'])
+  end
 
   erb :recommendations, locals: {
     recommendations: @recommender.recommendations
