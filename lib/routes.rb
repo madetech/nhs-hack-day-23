@@ -1,5 +1,6 @@
 before do
   $loader.reload
+  @session = Session.decode(request['session'])
 end
 
 get '/' do
@@ -7,8 +8,12 @@ get '/' do
 end
 
 get '/recommendations' do
+  @session.discharge_summary = request['discharge-summary']
+
   recommendations = UseCase::ViewRecommendations.new.execute
-  erb :recommendations, locals: recommendations
+  erb :recommendations, locals: recommendations.merge(
+    session: @session
+  )
 end
 
 get '/done' do

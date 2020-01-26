@@ -1,6 +1,7 @@
 <div class="nhsuk-u-padding-2"></div>
 <div class="nhsuk-width-container">
   <form method="GET" action="/done">
+    <input type="hidden" name="session" value="<%= session.encode %>" />
     <div class="nhsuk-u-padding-bottom-5">
       <h3>Recommendations</h3>
       <% recommendations.each do |recommendation| %>
