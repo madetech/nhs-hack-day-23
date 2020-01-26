@@ -48,5 +48,6 @@ get '/done' do
 end
 
 get '/send' do
+  @recommender.discharge_summary = ''
   redirect '/?success=true'
 end
