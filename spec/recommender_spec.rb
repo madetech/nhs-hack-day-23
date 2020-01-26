@@ -34,6 +34,11 @@ describe Recommender do
     @recommender.agree_on_recommendation(*args)
   end
 
+  def add_the_seeds
+    do_full_encode_decode_process
+    @recommender.add_the_seeds
+  end
+
   it 'can store the discharge summary' do
     new_discharge_summary('frail, and various other things')
     discharge_summary = recommendations_summary[:discharge_summary]
@@ -84,9 +89,29 @@ describe Recommender do
     end
   end
 
-  context 'recommendations for the presentation' do
-    xit 'can recommend carer keyword' do
-      new_discharge_summary()
+  context 'recommendations for the presentation with the seeds' do
+    before { add_the_seeds }
+    it 'can recommend carer keyword' do
+      new_discharge_summary('carer')
+      expect(recommendations[0][:title]).to eq("Carers' coffee morning")
+      expect(recommendations.length).to eq(1)
+    end
+
+    it 'can recommend fall keyword' do
+      new_discharge_summary('fall')
+      expect(recommendations[0][:title]).to eq("T'ai Chi")
+      expect(recommendations.length).to eq(1)
+    end
+
+    it 'can recommend fall keyword' do
+      new_discharge_summary('sport')
+      expect(recommendations[0][:title]).to eq("Wheelchair Basketball")
+      expect(recommendations.length).to eq(1)
+    end
+
+    it 'can recommend all three keywords' do
+      new_discharge_summary('carer fall sport')
+      expect(recommendations.length).to eq(3)
     end
   end
 

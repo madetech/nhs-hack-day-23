@@ -29,7 +29,13 @@ class Recommender
 
   def recommendations
     return [] if @discharge_summary.empty?
-    @recommendations
+
+    @recommendations.select do |r|
+      (!@discharge_summary.include?('sport') && !@discharge_summary.include?('fall') && !@discharge_summary.include?('carer')) ||
+      (r[:title] == 'Wheelchair Basketball' && @discharge_summary.include?('sport')) ||
+      (r[:title] == "T'ai Chi" && @discharge_summary.include?('fall')) ||
+      (r[:title] == "Carers' coffee morning" && @discharge_summary.include?('carer'))
+    end
   end
 
   def agree_on_recommendation(id)
@@ -43,5 +49,24 @@ class Recommender
         @agreed_recommendations.include?(r[:id])
       end
     }
+  end
+
+  def add_the_seeds
+    add_recommendation(
+      "T'ai Chi",
+      'Mondays 9-10am, Central Park'
+    )
+    add_recommendation(
+      'Wheelchair Basketball',
+      'Saturdays 10-11am, Meet at the entrance to Cardiff University. Free.'
+    )
+    add_recommendation(
+      "Carers' coffee morning",
+      'Support for those caring for friends/relatives, Tuesdays 11-12. £1 to cover refreshments.'
+    )
+    add_recommendation(
+      "Men's choir",
+      'Friday evenings 7-9pm, £20 per month.'
+    )
   end
 end

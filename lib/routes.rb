@@ -19,22 +19,7 @@ end
 
 get '/seeds' do
   reset
-  @recommender.add_recommendation(
-    "T'ai Chi",
-    'Mondays 9-10am, Central Park'
-  )
-  @recommender.add_recommendation(
-    'Wheelchair Basketball',
-    'Saturdays 10-11am, Meet at the entrance to Cardiff University. Free.'
-  )
-  @recommender.add_recommendation(
-    "Carers' coffee morning",
-    'Support for those caring for friends/relatives, Tuesdays 11-12. £1 to cover refreshments.'
-  )
-  @recommender.add_recommendation(
-    "Men's choir",
-    'Friday evenings 7-9pm, £20 per month.'
-  )
+  @recommender.add_the_seeds
   redirect '/'
 end
 
