@@ -48,7 +48,7 @@ get '/recommendations' do
 end
 
 get '/done' do
-  selected_recommendation_ids = request['selected_recommendation']
+  selected_recommendation_ids = request['selected_recommendation'] || []
   selected_recommendation_ids.each do |id|
     @recommender.agree_on_recommendation(id)
   end

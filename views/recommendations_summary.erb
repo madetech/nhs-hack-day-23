@@ -20,6 +20,10 @@
       </li>
       <% end %>
     </ul>
+    <% if @recommender.recommendations_summary[:recommendations].empty? %>
+      <p>No recommendations selected</p>
+    <% end %>
+
   </div>
   <form action="/send" method="get">
     <button class="nhsuk-button" type="submit">
