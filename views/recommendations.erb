@@ -3,9 +3,9 @@
   <form method="GET" action="/done">
     <input type="hidden" name="session" value="<%= session.encode %>" />
     <div class="nhsuk-u-padding-bottom-5">
-      <h3>Recommendations</h3>
+      <h3>Recommendations based on keywords in your discharge summary</h3>
       <% recommendations.each do |recommendation| %>
-        <div>
+        <div class="nhsuk-u-padding-bottom-9">
           <h4><%= recommendation[:title] %></h4>
           <p><%= recommendation[:description] %></p>
           <div class="nhsuk-checkboxes__item">
@@ -16,11 +16,36 @@
                    value="email">
             <label class="nhsuk-label nhsuk-checkboxes__label"
                    for="example-1">
-              Recommended
+              Select
             </label>
           </div>
         </div>
       <% end %>
+      <fieldset class="nhsuk-fieldset">
+        <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+          <h1 class="nhsuk-fieldset__heading">
+            Add a new recommendation
+          </h1>
+        </legend>
+
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="new-recommendation-name">
+            Name
+          </label>
+          <input class="nhsuk-input nhsuk-u-width-two-thirds" id="new-recommendation-name" name="new-recommendation-name" type="text">
+        </div>
+
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="new-recommendation-description">
+            Description
+          </label>
+          <textarea class="nhsuk-textarea" id="new-recommendation-description" name="new-recommendation-description" rows="5" aria-describedby="new-recommendation-description"></textarea>
+        </div>
+
+      </fieldset>
+
+
+
     </div>
     <button class="nhsuk-button" type="submit">
       Save and continue
