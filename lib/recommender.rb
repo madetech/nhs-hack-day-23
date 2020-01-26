@@ -1,16 +1,16 @@
 class Recommender
-  attr_accessor :summary
+  attr_accessor :discharge_summary
 
   def initialize
-    @summary = ''
+    @discharge_summary = ''
   end
 
   def new_discharge_summary(summary)
-    @summary = summary
+    @discharge_summary = summary
   end
 
   def recommendations
-    return [] if @summary.empty?
+    return [] if @discharge_summary.empty?
     [
       {
         title: 'Tai Chi'
@@ -23,7 +23,7 @@ class Recommender
 
   def recommendations_summary
     {
-      discharge_summary: @summary,
+      discharge_summary: @discharge_summary,
       recommendations: [
         {
           title: 'Tai Chi'

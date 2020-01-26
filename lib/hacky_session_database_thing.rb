@@ -4,7 +4,7 @@ class HackySessionDatabaseThing
   def encode(recommender)
     Base64.encode64(
       {
-        discharge_summary: recommender.summary
+        discharge_summary: recommender.discharge_summary
       }.to_json
     )
   end
@@ -14,7 +14,7 @@ class HackySessionDatabaseThing
     hash = JSON.parse(Base64.decode64(base64))
 
     recommender = Recommender.new
-    recommender.summary = hash['discharge_summary']
+    recommender.discharge_summary = hash['discharge_summary']
     recommender
   end
 end
