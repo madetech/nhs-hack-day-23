@@ -1,7 +1,12 @@
 before do
   $loader.reload
-  @recommender = HackySessionDatabaseThing.new.decode(request['db'])
+  @db = HackySessionDatabaseThing.new
+  @recommender = @db.decode(cookies[:db])
   @session = Session.decode(request['session']) #todo: get rid of session class
+end
+
+after do
+  cookies[:db] = @db.encode(@recommender)
 end
 
 get '/' do
@@ -9,12 +14,11 @@ get '/' do
 end
 
 get '/recommendations' do
-  @session.discharge_summary = request['discharge-summary']
+  @recommender.new_discharge_summary(request['discharge-summary'])
 
-  recommendations = UseCase::ViewRecommendations.new.execute #todo: get rid of use case class
-  erb :recommendations, locals: recommendations.merge(
-    session: @session
-  )
+  erb :recommendations, locals: {
+    recommendations: @recommender.recommendations
+  }
 end
 
 get '/done' do
