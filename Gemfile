@@ -12,3 +12,5 @@ gem 'rack-livereload'
 
 gem 'rb-readline'
 gem 'zeitwerk'
+
+gem 'rspec'
