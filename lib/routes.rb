@@ -12,5 +12,5 @@ get '/recommendations' do
 end
 
 get '/done' do
-  erb :done
+  erb :recommendations_summary
 end
